@@ -6,7 +6,7 @@ import utils
 import stitch
 import constant as const
 
-Parâmetros
+# Parâmetros
 #../input_image/desert/
 #../input_image/garden/
 #../input_image/hill/
