@@ -1,5 +1,3 @@
-# coding: utf-8
-
 import os
 import sys
 import cv2
@@ -19,15 +17,7 @@ def load_images(source_dir):
 
     return image_list
 
-"""
-Parse the input dir.
 
-Args:
-    source_dir: the dir that have images and a 'image_list.txt'
-
-Returns:
-    A image array and focal_length array
-"""
 def parse(source_dir):
     filenames = []
     focal_length = []
@@ -43,16 +33,7 @@ def parse(source_dir):
 
     return (img_list, focal_length)
 
-"""
-Project image to cylinder
 
-Args:
-    img: input image
-    focal_length: input image's focal length
-
-Return:
-    Cylindrical projection of input image
-"""
 def cylindrical_projection(img, focal_length):
     height, width, _ = img.shape
     cylinder_proj = np.zeros(shape=img.shape, dtype=np.uint8)
@@ -68,8 +49,8 @@ def cylindrical_projection(img, focal_length):
             if cylinder_x >= 0 and cylinder_x < width and cylinder_y >= 0 and cylinder_y < height:
                 cylinder_proj[cylinder_y][cylinder_x] = img[y+int(height/2)][x+int(width/2)]
     
-    # Crop black border
-    # ref: http://stackoverflow.com/questions/13538748/crop-black-edges-with-opencv
+
+    # referencia: http://stackoverflow.com/questions/13538748/crop-black-edges-with-opencv
     _, thresh = cv2.threshold(cv2.cvtColor(cylinder_proj, cv2.COLOR_BGR2GRAY), 1, 255, cv2.THRESH_BINARY)
     contours = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     x, y, w, h = cv2.boundingRect(contours[0])
