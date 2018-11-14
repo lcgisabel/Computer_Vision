@@ -7,10 +7,10 @@ import stitch
 import constant as const
 
 # Parâmetros
-#../input_image/desert/
-#../input_image/garden/
-#../input_image/hill/
-#../input_image/mountain/
+#../image/desert/
+#../image/garden/
+#../image/hill/
+#../image/mountain/
 
 if __name__ == '__main__':
     input_dirname = sys.argv[1]
