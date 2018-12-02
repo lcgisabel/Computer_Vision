@@ -1,0 +1,2 @@
+../image/desert/1.JPG
+../image/desert/2.JPG
