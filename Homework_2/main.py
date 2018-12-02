@@ -31,8 +31,8 @@ def getPoint(event, x, y, flags, params):
             list2.append([x, y])
     elif event == cv2.EVENT_LBUTTONUP:
         cv2.circle(img, (x, y), 4, (0, 255, 0), -1)
-        cv2.imshow("Original Image", img)
 
+cv2.namedWindow("image")
 cv2.setMouseCallback("image", getPoint)
 
 checkPoints();
